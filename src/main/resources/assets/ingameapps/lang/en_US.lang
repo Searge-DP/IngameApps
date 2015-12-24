@@ -1,0 +1,3 @@
+client_config.ingame_apps=Ingame Apps
+client_config.ingame_apps.trello=Trello
+client_config.ingame_apps.slack=Slack
