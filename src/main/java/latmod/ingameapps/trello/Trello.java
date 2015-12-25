@@ -1,7 +1,6 @@
 package latmod.ingameapps.trello;
 
 import com.google.gson.*;
-
 import latmod.lib.*;
 import latmod.lib.net.*;
 

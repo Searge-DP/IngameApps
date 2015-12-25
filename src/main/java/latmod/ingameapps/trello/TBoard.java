@@ -1,7 +1,6 @@
 package latmod.ingameapps.trello;
 
 import com.google.gson.*;
-
 import latmod.lib.FastMap;
 import latmod.lib.net.*;
 import latmod.lib.util.FinalIDObject;

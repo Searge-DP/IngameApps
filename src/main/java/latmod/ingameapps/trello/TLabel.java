@@ -1,7 +1,6 @@
 package latmod.ingameapps.trello;
 
 import com.google.gson.JsonObject;
-
 import latmod.lib.util.FinalIDObject;
 
 public class TLabel extends FinalIDObject
