@@ -1,4 +1,4 @@
-package latmod.ingameapps.trello;
+package latmod.ingameapps.apps.trello;
 
 import com.google.gson.*;
 import latmod.lib.*;
@@ -12,7 +12,14 @@ public class Trello
 	
 	public static Trello create(String name) throws Exception
 	{
-		JsonObject data = connectTrello("members/" + name + "?fields=username,fullName", null).getAsJsonObject();
+		StringBuilder sb = new StringBuilder(API_PATH);
+		sb.append("members/");
+		sb.append(name);
+		sb.append("?fields=username,fullName&key=");
+		sb.append(API_KEY);
+
+		JsonObject data = new LMURLConnection(RequestMethod.GET, sb.toString()).connect().asJson().getAsJsonObject();
+
 		TUser user = new TUser(data.get("id").getAsString());
 		user.username = data.get("username").getAsString();
 		user.fullName = data.get("fullName").getAsString();
@@ -21,20 +28,16 @@ public class Trello
 		return new Trello(user);
 	}
 	
-	public static JsonElement connectTrello(String urlS, String authToken) throws Exception
+	public JsonElement connectTrello(RequestMethod m, LinkBuilder url) throws Exception
 	{
-		StringBuilder sb = new StringBuilder();
-		if(!urlS.startsWith("http")) sb.append(API_PATH);
-		sb.append(urlS);
-		if(urlS.indexOf('?') > 0) sb.append('&'); else sb.append('?');
-		sb.append("key=");
-		sb.append(API_KEY);
-		if(authToken != null)
+		if(m != RequestMethod.SIMPLE_GET)
 		{
-			sb.append("&token=");
-			sb.append(authToken);
+			url.put("key", API_KEY);
+			if(authToken != null)
+				url.put("token", authToken);
 		}
-		return new LMURLConnection(RequestMethod.GET, sb.toString()).connect().asJson();
+
+		return new LMURLConnection(m, url.toString()).connect().asJson();
 	}
 	
 	public final TUser owner;
@@ -51,8 +54,11 @@ public class Trello
 	{
 		long l = LMUtils.millis();
 		System.out.println("Refreshing...");
-		
-		JsonArray a = connectTrello("members/" + owner.username + "/boards?fields=shortUrl,name,desc", authToken).getAsJsonArray();
+
+		LinkBuilder url = new LinkBuilder(API_PATH + "members/" + owner.username + "/boards");
+		url.put("fields", "shortUrl,name,desc");
+		JsonArray a = connectTrello(RequestMethod.GET, url).getAsJsonArray();
+
 		System.out.println("Found " + a.size() + " boards");
 		
 		boards.clear();
@@ -63,20 +69,6 @@ public class Trello
 			boards.add(new TBoard(this, o));
 		}
 		
-		sort();
 		System.out.println("Boards refreshed after " + (LMUtils.millis() - l) + "ms");
-	}
-	
-	public void sort()
-	{
-		boards.sort(null);
-		
-		for(TBoard b : boards)
-		{
-			b.lists.sort();
-			b.labels.sort();
-			for(TList l : b.lists)
-				l.cards.sort(null);
-		}
 	}
 }

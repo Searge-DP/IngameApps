@@ -1,7 +1,7 @@
-package latmod.ingameapps.trello;
+package latmod.ingameapps.apps.trello;
 
 import com.google.gson.*;
-import latmod.lib.FastMap;
+import latmod.lib.*;
 import latmod.lib.net.*;
 import latmod.lib.util.FinalIDObject;
 
@@ -27,8 +27,10 @@ public class TBoard extends FinalIDObject
 		name = o.get("name").getAsString();
 		desc = o.get("desc").getAsString();
 		
-		JsonObject o1 = new LMURLConnection(RequestMethod.GET, url + ".json").connect().asJson().getAsJsonObject();
-		
+		JsonObject o1 = parent.connectTrello(RequestMethod.SIMPLE_GET, new LinkBuilder(url + ".json")).getAsJsonObject();
+
+		System.out.println(o1);
+
 		JsonArray a = o1.get("labels").getAsJsonArray();
 		
 		for(int i = 0; i < a.size(); i++)

@@ -19,8 +19,6 @@ public class IngameApps
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent e)
 	{
-		IngameAppsConfig.load();
 		proxy.load();
-		EventBusHelper.register(new IngameAppsEventHandler());
 	}
 }

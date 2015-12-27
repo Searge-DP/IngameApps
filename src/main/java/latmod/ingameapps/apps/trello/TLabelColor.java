@@ -1,4 +1,4 @@
-package latmod.ingameapps.trello;
+package latmod.ingameapps.apps.trello;
 
 import latmod.lib.FastMap;
 

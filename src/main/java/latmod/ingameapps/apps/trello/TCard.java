@@ -1,4 +1,4 @@
-package latmod.ingameapps.trello;
+package latmod.ingameapps.apps.trello;
 
 import com.google.gson.*;
 import latmod.lib.FastList;
