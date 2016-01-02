@@ -43,7 +43,7 @@ public class IngameAppsConfig
 		file = new File(FTBLib.folderConfig, "/LatMod/XPT.json");
 		configFile = new ConfigFile("xpt", file);
 		configFile.configGroup.setName("XPTeleporters");
-		configFile.add(new ConfigGroup("general").addAll(IngameAppsConfig.class));
+		configFile.add(new ConfigGroup("general").addAll(IngameAppsConfig.class, null, false));
 		ConfigRegistry.add(configFile);
 		configFile.load();
 	}

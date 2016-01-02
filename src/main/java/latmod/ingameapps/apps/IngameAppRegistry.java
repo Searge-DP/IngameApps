@@ -15,7 +15,7 @@ public class IngameAppRegistry
 	public static void register(IngameApp app)
 	{
 		apps.put(app.ID, app);
-		config_group.add(app.enabled);
+		config_group.add(app.enabled, false);
 		app.load();
 	}
 }
