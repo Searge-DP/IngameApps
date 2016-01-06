@@ -1,13 +1,14 @@
 package latmod.ingameapps.apps.trello;
 
 import com.google.gson.JsonObject;
-import latmod.lib.FastList;
 import latmod.lib.util.FinalIDObject;
+
+import java.util.ArrayList;
 
 public class TList extends FinalIDObject
 {
 	public TBoard board;
-	public final FastList<TCard> cards;
+	public final ArrayList<TCard> cards;
 	
 	public final String name;
 	public final int pos;
@@ -16,7 +17,7 @@ public class TList extends FinalIDObject
 	{
 		super(o.get("id").getAsString());
 		board = b;
-		cards = new FastList<TCard>();
+		cards = new ArrayList<>();
 		
 		name = o.get("name").getAsString();
 		pos = o.get("pos").getAsInt();

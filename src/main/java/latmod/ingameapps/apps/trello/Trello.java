@@ -1,8 +1,10 @@
 package latmod.ingameapps.apps.trello;
 
 import com.google.gson.*;
-import latmod.lib.*;
+import latmod.lib.LMUtils;
 import latmod.lib.net.*;
+
+import java.util.ArrayList;
 
 public class Trello
 {
@@ -41,13 +43,13 @@ public class Trello
 	}
 	
 	public final TUser owner;
-	public final FastList<TBoard> boards;
+	public final ArrayList<TBoard> boards;
 	public String authToken = null;
 	
 	private Trello(TUser u)
 	{
 		owner = u;
-		boards = new FastList<TBoard>();
+		boards = new ArrayList<>();
 	}
 	
 	public void refreshData() throws Exception

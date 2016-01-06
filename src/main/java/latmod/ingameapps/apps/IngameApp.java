@@ -1,7 +1,6 @@
 package latmod.ingameapps.apps;
 
 import ftb.lib.api.PlayerAction;
-import ftb.lib.api.config.ClientConfigRegistry;
 import ftb.lib.client.TextureCoords;
 import latmod.ingameapps.IngameApps;
 import latmod.lib.config.ConfigEntryBool;
@@ -29,13 +28,13 @@ public abstract class IngameApp extends FinalIDObject
 			{ return IngameApp.this.fullID; }
 		};
 
-		playerAction = new PlayerAction(TextureCoords.getSquareIcon(new ResourceLocation(IngameApps.MOD_ID_L, resourcePath + "icon.png"), 32))
+		playerAction = new PlayerAction(fullID, TextureCoords.getSquareIcon(new ResourceLocation(IngameApps.MOD_ID_L, resourcePath + "icon.png"), 32))
 		{
 			public void onClicked(int playerID)
 			{ IngameApp.this.onButtonClicked(); }
 
-			public String getTitle()
-			{ return IngameApp.this.getTitle(); }
+			public String getTitleKey()
+			{ return ID; }
 		};
 	}
 

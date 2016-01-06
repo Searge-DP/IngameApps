@@ -4,6 +4,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.*;
 import ftb.lib.api.EventPlayerActionButtons;
 import latmod.ingameapps.apps.*;
+import latmod.lib.LMMapUtils;
 
 public class IngameAppsEventHandler
 {
@@ -11,7 +12,7 @@ public class IngameAppsEventHandler
 	@SubscribeEvent
 	public void addButtons(EventPlayerActionButtons e)
 	{
-		for(IngameApp app : IngameAppRegistry.apps.values(null))
+		for(IngameApp app : LMMapUtils.values(IngameAppRegistry.apps, null))
 		{
 			if(e.addAll || app.enabled.get()) e.actions.add(app.playerAction);
 		}

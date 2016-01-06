@@ -3,20 +3,21 @@ package latmod.ingameapps.apps.trello.gui;
 import ftb.lib.gui.GuiLM;
 import ftb.lib.gui.widgets.ButtonLM;
 import latmod.ingameapps.apps.trello.TBoard;
-import latmod.lib.FastList;
+
+import java.util.ArrayList;
 
 /**
  * Created by LatvianModder on 26.12.2015.
  */
 public class GuiTrelloBoards extends GuiLM
 {
-	public final FastList<ButtonBoard> buttons;
+	public final ArrayList<ButtonBoard> buttons;
 
 	public GuiTrelloBoards()
 	{
 		super(null, null);
 
-		buttons = new FastList<>();
+		buttons = new ArrayList<>();
 	}
 
 	public void addWidgets()

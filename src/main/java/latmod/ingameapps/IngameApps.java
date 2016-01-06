@@ -1,7 +1,7 @@
 package latmod.ingameapps;
+
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import ftb.lib.EventBusHelper;
 
 @Mod(modid = IngameApps.MOD_ID, name = "IngameApps", version = "@VERSION@", dependencies = "required-after:FTBL")
 public class IngameApps

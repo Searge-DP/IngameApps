@@ -1,6 +1,6 @@
 package latmod.ingameapps.apps.trello;
 
-import latmod.lib.FastMap;
+import java.util.HashMap;
 
 public enum TLabelColor
 {
@@ -15,7 +15,7 @@ public enum TLabelColor
 	pink,
 	black;
 	
-	private static final FastMap<String, TLabelColor> map = new FastMap<String, TLabelColor>();
+	private static final HashMap<String, TLabelColor> map = new HashMap<>();
 	
 	public static TLabelColor get(String s)
 	{

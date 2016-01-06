@@ -1,6 +1,6 @@
 package latmod.ingameapps.apps.trello;
 
-import latmod.lib.FastMap;
+import java.util.HashMap;
 
 public enum TBoardColor
 {
@@ -14,7 +14,7 @@ public enum TBoardColor
 	sky(0xFF00AECC),
 	grey(0xFF838C91);
 	
-	private static final FastMap<String, TBoardColor> map = new FastMap<String, TBoardColor>();
+	private static final HashMap<String, TBoardColor> map = new HashMap<>();
 	public final int color;
 	
 	TBoardColor(int c)

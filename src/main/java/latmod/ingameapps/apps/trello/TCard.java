@@ -1,8 +1,9 @@
 package latmod.ingameapps.apps.trello;
 
 import com.google.gson.*;
-import latmod.lib.FastList;
 import latmod.lib.util.FinalIDObject;
+
+import java.util.ArrayList;
 
 public class TCard extends FinalIDObject
 {
@@ -11,7 +12,7 @@ public class TCard extends FinalIDObject
 	public final String desc;
 	public final int pos;
 	public final String url;
-	public final FastList<TLabel> labels;
+	public final ArrayList<TLabel> labels;
 	
 	public TCard(TList l, JsonObject o) throws Exception
 	{
@@ -22,7 +23,7 @@ public class TCard extends FinalIDObject
 		desc = o.get("desc").getAsString();
 		pos = o.get("pos").getAsInt();
 		url = o.get("shortUrl").getAsString();
-		labels = new FastList<TLabel>();
+		labels = new ArrayList<>();
 		
 		JsonArray a = o.get("idLabels").getAsJsonArray();
 		

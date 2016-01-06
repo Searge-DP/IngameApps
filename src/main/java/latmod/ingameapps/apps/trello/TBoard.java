@@ -1,15 +1,16 @@
 package latmod.ingameapps.apps.trello;
 
 import com.google.gson.*;
-import latmod.lib.*;
 import latmod.lib.net.*;
 import latmod.lib.util.FinalIDObject;
+
+import java.util.HashMap;
 
 public class TBoard extends FinalIDObject
 {
 	public final Trello parent;
-	public final FastMap<String, TList> lists;
-	public final FastMap<String, TLabel> labels;
+	public final HashMap<String, TList> lists;
+	public final HashMap<String, TLabel> labels;
 	
 	public final String url;
 	public final String name;
@@ -20,8 +21,8 @@ public class TBoard extends FinalIDObject
 	{
 		super(o.get("id").getAsString());
 		parent = t;
-		lists = new FastMap<String, TList>();
-		labels = new FastMap<String, TLabel>();
+		lists = new HashMap<>();
+		labels = new HashMap<>();
 		
 		url = o.get("shortUrl").getAsString();
 		name = o.get("name").getAsString();

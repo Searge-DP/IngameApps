@@ -40,7 +40,7 @@ public class TrelloApp extends IngameApp
 
 							FTBLib.dev_logger.info("{");
 
-							for(TList l : b.lists)
+							for(TList l : b.lists.values())
 							{
 								FTBLib.dev_logger.info("  " + l.name);
 								FTBLib.dev_logger.info("  {");
