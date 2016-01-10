@@ -12,11 +12,11 @@ public class SlackApp extends IngameApp
 	{
 		super("slack", true);
 	}
-
+	
 	public void load()
 	{
 	}
-
+	
 	public void onButtonClicked()
 	{
 		FTBLib.printChat(null, "Slack integration is not implemented yet!");

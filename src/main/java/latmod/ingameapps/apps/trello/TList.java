@@ -27,5 +27,5 @@ public class TList extends FinalIDObject
 	{ return name; }
 	
 	public int compareTo(Object o)
-	{ return Integer.compare(pos, ((TList)o).pos); }
+	{ return Integer.compare(pos, ((TList) o).pos); }
 }

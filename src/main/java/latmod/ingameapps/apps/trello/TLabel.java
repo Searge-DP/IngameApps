@@ -21,5 +21,5 @@ public class TLabel extends FinalIDObject
 	{ return name.isEmpty() ? color.name() : name; }
 	
 	public int compareTo(Object o)
-	{ return Integer.compare(color.ordinal(), ((TLabel)o).color.ordinal()); }
+	{ return Integer.compare(color.ordinal(), ((TLabel) o).color.ordinal()); }
 }

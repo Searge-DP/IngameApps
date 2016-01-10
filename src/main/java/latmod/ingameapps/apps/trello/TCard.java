@@ -38,7 +38,7 @@ public class TCard extends FinalIDObject
 	{ return name; }
 	
 	public int compareTo(Object o)
-	{ return Integer.compare(pos, ((TCard)o).pos); }
+	{ return Integer.compare(pos, ((TCard) o).pos); }
 	
 	/*
 	 * "id": "5679d72bea3bcd1c7f52689b",

@@ -29,9 +29,9 @@ public class TBoard extends FinalIDObject
 		desc = o.get("desc").getAsString();
 		
 		JsonObject o1 = parent.connectTrello(RequestMethod.SIMPLE_GET, new LinkBuilder(url + ".json")).getAsJsonObject();
-
+		
 		System.out.println(o1);
-
+		
 		JsonArray a = o1.get("labels").getAsJsonArray();
 		
 		for(int i = 0; i < a.size(); i++)

@@ -19,9 +19,9 @@ public class Trello
 		sb.append(name);
 		sb.append("?fields=username,fullName&key=");
 		sb.append(API_KEY);
-
+		
 		JsonObject data = new LMURLConnection(RequestMethod.GET, sb.toString()).connect().asJson().getAsJsonObject();
-
+		
 		TUser user = new TUser(data.get("id").getAsString());
 		user.username = data.get("username").getAsString();
 		user.fullName = data.get("fullName").getAsString();
@@ -35,10 +35,9 @@ public class Trello
 		if(m != RequestMethod.SIMPLE_GET)
 		{
 			url.put("key", API_KEY);
-			if(authToken != null)
-				url.put("token", authToken);
+			if(authToken != null) url.put("token", authToken);
 		}
-
+		
 		return new LMURLConnection(m, url.toString()).connect().asJson();
 	}
 	
@@ -56,11 +55,11 @@ public class Trello
 	{
 		long l = LMUtils.millis();
 		System.out.println("Refreshing...");
-
+		
 		LinkBuilder url = new LinkBuilder(API_PATH + "members/" + owner.username + "/boards");
 		url.put("fields", "shortUrl,name,desc");
 		JsonArray a = connectTrello(RequestMethod.GET, url).getAsJsonArray();
-
+		
 		System.out.println("Found " + a.size() + " boards");
 		
 		boards.clear();
