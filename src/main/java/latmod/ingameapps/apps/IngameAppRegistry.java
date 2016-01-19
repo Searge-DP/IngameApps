@@ -1,6 +1,6 @@
 package latmod.ingameapps.apps;
 
-import ftb.lib.mod.client.FTBLibGuiEventHandler;
+import ftb.lib.api.gui.PlayerActionRegistry;
 
 import java.util.HashMap;
 
@@ -14,7 +14,7 @@ public class IngameAppRegistry
 	public static void register(IngameApp app)
 	{
 		apps.put(app.ID, app);
-		FTBLibGuiEventHandler.sidebar_buttons_config.add(app.enabled, false);
+		PlayerActionRegistry.add(app.playerAction);
 		app.load();
 	}
 }

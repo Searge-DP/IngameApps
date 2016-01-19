@@ -1,7 +1,7 @@
 package latmod.ingameapps.apps.trello.gui;
 
-import ftb.lib.gui.GuiLM;
-import ftb.lib.gui.widgets.ButtonLM;
+import ftb.lib.api.gui.GuiLM;
+import ftb.lib.api.gui.widgets.ButtonLM;
 import latmod.ingameapps.apps.trello.TBoard;
 
 import java.util.ArrayList;
